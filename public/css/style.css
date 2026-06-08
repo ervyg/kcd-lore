@@ -1,0 +1,586 @@
+/* ============================================
+   天国拯救世界观网站 — 羊皮纸主题样式
+   ============================================ */
+
+/* --- Google Fonts 导入 --- */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Noto+Serif+SC:wght@300;400;600;700&family=Medievalsharp&display=swap');
+
+/* --- CSS 变量 --- */
+:root {
+  --parchment-light: #faf3e0;
+  --parchment: #f0d9b5;
+  --parchment-dark: #d4b896;
+  --parchment-edge: #c4a67a;
+  --ink: #3b2314;
+  --ink-light: #5c3a1e;
+  --gold: #c9a84c;
+  --gold-dark: #a07830;
+  --red-wax: #8b2500;
+  --dark-red: #6b1a1a;
+  --accent: #8b4513;
+  --parchment-texture: #e8d5b0;
+  --shadow: rgba(60, 30, 10, 0.3);
+  --font-heading: 'Cinzel', serif;
+  --font-body: 'Noto Serif SC', 'SimSun', serif;
+  --font-decorative: 'Medievalsharp', cursive;
+  --max-width: 960px;
+}
+
+/* --- 重置与基础 --- */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--ink);
+  line-height: 1.8;
+  min-height: 100vh;
+
+  /* 多层背景模拟旧羊皮纸 */
+  background-color: var(--parchment-dark);
+  background-image:
+    /* 羊皮纸纤维纹理 */
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(139, 69, 19, 0.03) 2px,
+      rgba(139, 69, 19, 0.03) 4px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 1px,
+      rgba(139, 69, 19, 0.02) 1px,
+      rgba(139, 69, 19, 0.02) 2px
+    ),
+    /* 色块模拟污渍 */
+    radial-gradient(ellipse at 20% 50%, rgba(139, 69, 19, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(139, 69, 19, 0.06) 0%, transparent 40%),
+    radial-gradient(ellipse at 50% 80%, rgba(139, 69, 19, 0.05) 0%, transparent 45%),
+    /* 基色 */
+    linear-gradient(180deg, var(--parchment) 0%, var(--parchment-dark) 100%);
+  background-attachment: fixed;
+}
+
+/* --- 滚动条 --- */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--parchment-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 5px;
+  border: 2px solid var(--parchment-dark);
+}
+
+/* --- 页面容器 --- */
+.page-wrapper {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- 导航栏 --- */
+.navbar {
+  background:
+    linear-gradient(180deg, rgba(244, 228, 193, 0.95), rgba(240, 217, 181, 0.95));
+  border-bottom: 3px double var(--gold);
+  box-shadow: 0 2px 12px var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(5px);
+}
+
+.nav-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  flex-wrap: wrap;
+}
+
+.nav-brand {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--gold-dark);
+  text-decoration: none;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-brand::before {
+  content: '⚔';
+  font-size: 1.2rem;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+.nav-links a {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ink-light);
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+  position: relative;
+  letter-spacing: 0.5px;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--gold-dark);
+  background: rgba(201, 168, 76, 0.1);
+}
+
+.nav-links a.active::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 14px;
+  right: 14px;
+  height: 2px;
+  background: var(--gold);
+}
+
+/* --- 主内容区 --- */
+.main-content {
+  flex: 1;
+  background:
+    linear-gradient(180deg,
+      rgba(250, 243, 224, 0.92),
+      rgba(240, 217, 181, 0.92)
+    );
+  margin: 24px 0;
+  padding: 40px 48px;
+  border: 3px double var(--accent);
+  border-radius: 4px;
+  box-shadow:
+    0 4px 24px var(--shadow),
+    inset 0 0 30px rgba(139, 69, 19, 0.05);
+  position: relative;
+}
+
+/* 内容区顶部装饰 */
+.main-content::before {
+  content: '❧';
+  display: block;
+  text-align: center;
+  font-size: 2rem;
+  color: var(--gold-dark);
+  margin-bottom: 20px;
+}
+
+/* --- 标题 --- */
+h1 {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--ink);
+  text-align: center;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+}
+
+h1::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 2px;
+  background: var(--gold);
+  margin: 12px auto 0;
+}
+
+h2 {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--ink-light);
+  margin: 32px 0 16px;
+  padding-left: 16px;
+  border-left: 4px solid var(--gold);
+  letter-spacing: 1px;
+}
+
+h3 {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin: 20px 0 10px;
+}
+
+/* --- 段落 --- */
+p {
+  text-indent: 2em;
+  margin-bottom: 14px;
+  text-align: justify;
+}
+
+p:first-of-type {
+  margin-top: 0;
+}
+
+/* --- 引言/导语 --- */
+.intro-text {
+  font-size: 1.1rem;
+  color: var(--ink-light);
+  text-align: center;
+  font-style: italic;
+  padding: 16px 24px;
+  margin-bottom: 24px;
+  border-top: 1px solid var(--parchment-edge);
+  border-bottom: 1px solid var(--parchment-edge);
+  text-indent: 0;
+}
+
+/* --- 链接 --- */
+a {
+  color: var(--dark-red);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: var(--red-wax);
+}
+
+/* --- 卡片（角色/地点） --- */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.card {
+  background: rgba(250, 243, 224, 0.7);
+  border: 1px solid var(--parchment-edge);
+  border-radius: 3px;
+  padding: 20px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.card:hover {
+  border-color: var(--gold);
+  box-shadow: 0 4px 16px rgba(201, 168, 76, 0.2);
+  transform: translateY(-2px);
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 20px;
+  right: 20px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.card h3 {
+  margin-top: 8px;
+  text-align: center;
+}
+
+.card .card-subtitle {
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  color: var(--gold-dark);
+  text-align: center;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.card .card-traits {
+  margin-top: 12px;
+  font-size: 0.9rem;
+  color: var(--accent);
+  font-style: italic;
+  text-align: center;
+  padding-top: 10px;
+  border-top: 1px dotted var(--parchment-edge);
+}
+
+/* --- 时间线 --- */
+.timeline {
+  position: relative;
+  padding-left: 40px;
+  margin: 24px 0;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 15px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, var(--gold), var(--accent), var(--gold));
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 28px;
+  padding: 16px 20px;
+  background: rgba(250, 243, 224, 0.6);
+  border: 1px solid var(--parchment-edge);
+  border-radius: 3px;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -33px;
+  top: 20px;
+  width: 10px;
+  height: 10px;
+  background: var(--gold);
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+}
+
+.timeline-year {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--gold-dark);
+  margin-bottom: 4px;
+}
+
+.timeline-item h3 {
+  margin-top: 0;
+}
+
+.timeline-item p {
+  text-indent: 0;
+  margin-bottom: 0;
+}
+
+/* --- 英雄横幅（首页） --- */
+.hero {
+  text-align: center;
+  padding: 48px 20px 32px;
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  font-weight: 900;
+  letter-spacing: 3px;
+  margin-bottom: 8px;
+}
+
+.hero h1::after {
+  width: 120px;
+  height: 3px;
+  margin-top: 16px;
+}
+
+.hero .subtitle {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  color: var(--gold-dark);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+.hero .tagline {
+  font-size: 1.15rem;
+  color: var(--ink-light);
+  font-style: italic;
+  margin-top: 16px;
+  text-indent: 0;
+}
+
+/* 首页导航卡片 */
+.home-nav {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.home-nav-card {
+  display: block;
+  background: rgba(250, 243, 224, 0.6);
+  border: 2px solid var(--parchment-edge);
+  border-radius: 3px;
+  padding: 24px 16px;
+  text-align: center;
+  text-decoration: none;
+  color: var(--ink);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.home-nav-card:hover {
+  border-color: var(--gold);
+  box-shadow: 0 6px 20px rgba(201, 168, 76, 0.25);
+  transform: translateY(-3px);
+}
+
+.home-nav-card .icon {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.home-nav-card h3 {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  margin: 8px 0;
+  color: var(--ink);
+}
+
+.home-nav-card .desc {
+  font-size: 0.85rem;
+  color: var(--ink-light);
+  text-indent: 0;
+}
+
+/* --- 历史章节 --- */
+.section-block {
+  margin-bottom: 28px;
+  padding-bottom: 20px;
+  border-bottom: 1px dotted var(--parchment-edge);
+}
+
+.section-block:last-child {
+  border-bottom: none;
+}
+
+.section-block h2 {
+  margin-top: 0;
+}
+
+/* --- 页脚 --- */
+.footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 0.85rem;
+  color: var(--ink-light);
+  border-top: 2px double var(--parchment-edge);
+  margin-top: 8px;
+}
+
+.footer .ornament {
+  color: var(--gold-dark);
+  font-size: 1.2rem;
+  letter-spacing: 8px;
+  margin-bottom: 8px;
+}
+
+/* --- 404页面 --- */
+.error-page {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.error-page h1 {
+  font-size: 4rem;
+  font-weight: 900;
+  color: var(--accent);
+}
+
+.error-page h1::after {
+  display: none;
+}
+
+.error-page p {
+  text-indent: 0;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+/* --- 响应式 --- */
+@media (max-width: 768px) {
+  .main-content {
+    padding: 24px 20px;
+    margin: 16px 0;
+  }
+
+  h1 { font-size: 1.6rem; }
+  h2 { font-size: 1.2rem; }
+
+  .hero h1 { font-size: 1.8rem; }
+  .hero .subtitle { font-size: 0.8rem; letter-spacing: 2px; }
+
+  .home-nav { grid-template-columns: repeat(2, 1fr); }
+  .card-grid { grid-template-columns: 1fr; }
+
+  .nav-inner {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .nav-links a {
+    font-size: 0.75rem;
+    padding: 6px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-nav { grid-template-columns: 1fr; }
+  .timeline { padding-left: 28px; }
+}
+
+/* --- 动画 --- */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.main-content {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.card, .timeline-item {
+  animation: fadeInUp 0.5s ease-out both;
+}
+
+.card:nth-child(1) { animation-delay: 0.05s; }
+.card:nth-child(2) { animation-delay: 0.1s; }
+.card:nth-child(3) { animation-delay: 0.15s; }
+.card:nth-child(4) { animation-delay: 0.2s; }
+.card:nth-child(5) { animation-delay: 0.25s; }
+.card:nth-child(6) { animation-delay: 0.3s; }
+
+/* --- 选区颜色 --- */
+::selection {
+  background: rgba(201, 168, 76, 0.3);
+  color: var(--ink);
+}

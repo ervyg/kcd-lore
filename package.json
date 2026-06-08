@@ -1,0 +1,21 @@
+{
+  "name": "kingdom-come-deliverance-lore",
+  "version": "1.0.0",
+  "description": "天国拯救系列 — 世界观介绍网站",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "KCD",
+    "Kingdom Come",
+    "天国拯救",
+    "game lore"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "ejs": "^6.0.1",
+    "express": "^5.2.1"
+  }
+}

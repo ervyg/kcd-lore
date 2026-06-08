@@ -1,0 +1,15 @@
+<%- include('partials/header') %>
+
+<h1><%= data.title %></h1>
+
+<div class="timeline">
+<% data.events.forEach(function(event) { %>
+  <div class="timeline-item">
+    <div class="timeline-year"><%= event.year %> 年</div>
+    <h3><%= event.title %></h3>
+    <p><%= event.description %></p>
+  </div>
+<% }); %>
+</div>
+
+<%- include('partials/footer') %>

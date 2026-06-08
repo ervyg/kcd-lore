@@ -1,0 +1,18 @@
+<%- include('partials/header') %>
+
+<h1><%= data.title %></h1>
+
+<div class="card-grid">
+<% data.items.forEach(function(loc) { %>
+  <div class="card">
+    <h3><%= loc.name %></h3>
+    <div class="card-subtitle"><%= loc.type %></div>
+    <p style="text-indent:0;"><%= loc.description %></p>
+    <% if (loc.significance) { %>
+      <div class="card-traits">📍 <%= loc.significance %></div>
+    <% } %>
+  </div>
+<% }); %>
+</div>
+
+<%- include('partials/footer') %>
